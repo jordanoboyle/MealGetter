@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/fontawesome.min.css"
+    integrity="sha384-NvKbDTEnL+A8F/AA5Tc5kmMLSJHUO868P+lDtTpJIeQdGYaUIuLr4lVGOEA1OcMy" crossorigin="anonymous">
+  <title>Get That Meal</title>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Let's Get That Meal Idea!</h1>
+    <div class="flex">
+      <form action="" class="flex" id="submit">
+        <input type="text" id="search" placeholder="Search for meals or keywords">
+        <br>
+        <button class="search-btn" type="submit">
+          <i class="fa fa-search">
+            Search
+          </i>
+        </button>
+      </form>
+      <br>
+      <button class="random-btn" id="random">
+        <i class="fa fa-random">
+          Meal Randomizer
+        </i>
+      </button>
+    </div>
+
+    <div id="result-heading"></div>
+    <div id="meals" class="meals"></div>
+    <div id="single-meal"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
