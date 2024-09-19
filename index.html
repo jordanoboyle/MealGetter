@@ -13,6 +13,25 @@
 
   <div class="container">
     <h1>Let's Get That Meal Idea!</h1>
+    <div class="flex">
+      <form action="" class="flex" id="submit">
+        <input type="text" id="search" placeholder="Search for meals or keywords">
+        <button class="search-btn" type="submit">
+          <i class="fas fa-search">
+            Search
+          </i>
+        </button>
+      </form>
+      <button class="random-btn" id="random">
+        <i class="fas fa-random">
+          Meal Randomizer
+        </i>
+      </button>
+    </div>
+
+    <div id="result-heading"></div>
+    <div id="meals" class="meals"></div>
+    <div id="single-meal"></div>
   </div>
 
   <script src="script.js"></script>
