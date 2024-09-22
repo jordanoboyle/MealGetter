@@ -24,7 +24,27 @@ function searchMeals(e) {
       .then(response => response.json())
       .then(data => {
         console.log(data);
+        resultHeading.innerHTML = `<h2>Search results for ${term}</h2>`;
+        
+        if (data.meals === null) {
+          resultHeading.innerHTML = `
+          <h2>There are no meals with this search parameter.</h2> 
+          <h3>Please Try Again</h3>
+          `;
+        } else {
+          mealsEl.innerHTML = data.meals.map(meal => `
+            <div class="meal">
+              <img src="${meal.strMealThumb}"/>
+              <div class="meal-info" data-mealID="${meal.idMeal}"> 
+                <h3>${meal.strMeal} </h3>
+              </div>
+            </div>
+            `
+          ).join('');
+        }
       });
+      //Clear the search text
+      search.value = '';
   } else {
     alert('Please Enter a Search Term'); // This is a simple JS way to handle a faulty input, thought it is better to update a DOM element that will tell you otherwise
   }
