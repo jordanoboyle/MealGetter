@@ -43,13 +43,39 @@ function searchMeals(e) {
           ).join('');
         }
       });
-      //Clear the search text
-      search.value = '';
+    //Clear the search text
+    search.value = '';
   } else {
     alert('Please Enter a Search Term'); // This is a simple JS way to handle a faulty input, thought it is better to update a DOM element that will tell you otherwise
   }
+}
 
+//Get Meal By ID
+function getMealById(mealID) {
+  fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+    });
 }
 
 //Event Listeners 
 submit.addEventListener('submit', searchMeals);
+
+mealsEl.addEventListener('click', e => {
+  const mealInfo = e.composedPath().find((item) => {
+    // console.log(item);
+    if (item.classList) {
+      return item.classList.contains('meal-info');
+    } else {
+      return false;
+    }
+  });
+  console.log('This is MealID Information', mealInfo);
+
+  if (mealInfo) {
+    const mealID = mealInfo.getAttribute('data-mealid');
+    console.log('REAL mealId',mealID);
+    getMealById(mealID);
+  }
+});
