@@ -56,7 +56,24 @@ function getMealById(mealID) {
     .then(response => response.json())
     .then(data => {
       console.log(data);
+      const meal = data.meals[0];
+
+      addMealToDOM(meal);
     });
+}
+
+//Add Meal to DOM
+function addMealToDOM(meal) {
+  const ingredients = [];
+
+  for (let i = 1; i <= 20; i++) {
+    if (meal[`strIngredient${i}`]) {
+      ingredients.push(`${meal[`strIngredient${i}`]} - ${meal[`strMeasure${i}`]}`);
+    } else {
+      break;
+    }
+  }
+  console.log(ingredients);
 }
 
 //Event Listeners 
