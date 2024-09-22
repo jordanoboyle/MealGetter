@@ -81,12 +81,19 @@ function addMealToDOM(meal) {
       <img src="${meal.strMealThumb}" alt="${meal.strMeal}"/>
       <div class="single-meal-info">
         ${meal.strCategory ? `<p>${meal.strCategory}</p>` : ''}
-        ${meal.strArea ? `<p>${meal.strArea} </p>` : ''}  
+        ${meal.strArea ? `<p> Origin: ${meal.strArea} </p>` : ''}  
+      </div>
+      <div class="main">
+        <p>${meal.strInstructions} </p>
+        <h2>Ingredients</h2>
+        <ul>
+          ${ingredients.map( ingred => `<li>${ingred} </li>`).join('')}
+        </ul>
       </div>
     </div>
   `
   // You have to think about the above like HTML (because it is), but also have to think about it like JS. You are combining the 2 different aspects of this Project into one. 
-
+  //Remember how we said no HTML in JS....I call complete bullshit because that's what you actually do. 
 }
 
 //Event Listeners 
