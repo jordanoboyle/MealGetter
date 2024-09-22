@@ -73,7 +73,20 @@ function addMealToDOM(meal) {
       break;
     }
   }
-  console.log(ingredients);
+  console.log('Ingreds Pulls From JSON', ingredients);
+
+  singleMealEl.innerHTML = `
+    <div class="single-meal">
+      <h1>${meal.strMeal}</h1>
+      <img src="${meal.strMealThumb}" alt="${meal.strMeal}"/>
+      <div class="single-meal-info">
+        ${meal.strCategory ? `<p>${meal.strCategory}</p>` : ''}
+        ${meal.strArea ? `<p>${meal.strArea} </p>` : ''}  
+      </div>
+    </div>
+  `
+  // You have to think about the above like HTML (because it is), but also have to think about it like JS. You are combining the 2 different aspects of this Project into one. 
+
 }
 
 //Event Listeners 
